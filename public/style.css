@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1, h3 {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+.chats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.chat {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: calc(33% - 20px); /* Adjust for responsive layout */
+  box-sizing: border-box;
+  position: relative; /* Needed for chat actions positioning */
+}
+
+.sender,
+.recipient {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.message p {
+  margin: 0;
+}
+
+.chat-actions {
+  position: absolute; /* Position actions at the bottom right */
+  top: auto;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+}
+
+.chat-actions button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #3498db; /* Match header color */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.chat-actions button:hover {
+  background-color: #2980b9;
+}
+
+.chat-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.8em;
+  color: #999;
+}
+
+hr {
+  margin: 10px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatroom</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Chatroom</h1>
+    <p>Welcome to the messaging hub!</p>
+  </header>
+
+  <main>
+    <h3>All Chats</h3>
+    <div class="chats-container">
+      <% for (let chat of chats) { %>
+        <div class="chat">
+          <div class="sender">
+            <p>From: <%= chat.from %></p>
+          </div>
+          <div class="message">
+            <p><%= chat.msg %></p>
+            <div class="chat-actions">
+              <form method="GET" action="/chats/<%= chat._id %>/edit">
+                <button>Edit</button>
+              </form>
+              <form method="POST" action="/chats/<%= chat._id %>?_method=DELETE">
+                <button>Delete</button>
+              </form>
+            </div>
+          </div>
+          <div class="recipient">
+            <p>Received by: <%= chat.to %></p>
+          </div>
+          <div class="chat-info">
+            <p><%= chat.created_at.toString().split(" ")[4] %></p>
+            <p><%= chat.created_at.toString().split(" ").slice(0, 4).join("-") %></p>
+          </div>
+          <hr />
+        </div>
+      <% } %>
+    </div>
+
+    <form method="GET" action="/chats/new">
+      <button class="new-chat-button">New Chat</button>
+    </form>
+  </main>
+
+</body>
+</html>
